@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t donmilorad/react-docerized -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true donmilorad/react-docerized npm
